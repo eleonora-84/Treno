@@ -1,0 +1,19 @@
+CREATE SCHEMA IF NOT EXISTS trenobuilder;
+USE trenobuilder;
+
+CREATE TABLE IF NOT EXISTS utente(
+id INT AUTO_INCREMENT,
+username VARCHAR(45),
+password VARCHAR(45),
+PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS treno(
+id INT AUTO_INCREMENT,
+sigla VARCHAR(45),
+peso DOUBLE,
+utente_id INT NOT NULL,
+tipo VARCHAR(45),
+PRIMARY KEY(id),
+FOREIGN KEY(utente_id) REFERENCES utente(id)
+)
